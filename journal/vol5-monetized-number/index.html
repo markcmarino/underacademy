@@ -159,7 +159,7 @@ body[data-phase="2"] .pres b{font-weight:800;font-size:1.15rem}
 .g-game{grid-area:game;display:flex;flex-direction:column}
 #resPanel{order:1}#projPanel{order:2}.issue{order:3}.issue.lead{order:0}
 .issue ol{padding-left:1.3rem;margin:0 0 1rem}
-.issue-h{display:flex;align-items:flex-start;justify-content:space-between;gap:.5rem .9rem;flex-wrap:wrap;margin:0 0 .4rem}
+.issue-h{display:flex;flex-direction:column;align-items:flex-start;gap:.9rem;margin:0 0 .4rem}
 .issue-h h2{margin:0}
 .byl-box{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:.3rem .4rem;align-items:center;font-family:"Archivo",sans-serif;font-size:.78rem;width:17rem;max-width:100%}
 .byl-box label{color:var(--muted);font-size:.72rem;letter-spacing:.04em;text-transform:uppercase}
@@ -1757,7 +1757,7 @@ function youFull(){ return (youFak() ? "Dr. " : "") + youName(); }
 function youCite(){ var n = youName(); if (!(S.who && S.who.name)) return n; var w = n.split(" "); return w[w.length - 1]; }
 function bylineHTML(){
   var nm = (S.who && S.who.name) || "", fk = youFak();
-  return '<div class="byl-box"><label for="bylIn">Enter Your Byline</label>' +
+  return '<div class="byl-box"><label for="bylIn">Your Name</label>' +
     '<div class="byl-role" role="group" aria-label="Student or Fakulty"><button type="button" data-role="stu" aria-pressed="' + (!fk) + '">Student</button><button type="button" data-role="fak" aria-pressed="' + fk + '">Fakulty</button></div>' +
     '<input id="bylIn" type="text" maxlength="30" autocomplete="off" spellcheck="false" placeholder="Applicant 7B" value="' + esc(nm) + '">' +
     '<button type="button" class="byl-go" id="bylGo">Submit</button>' +
@@ -1791,7 +1791,7 @@ function renderIssue(){
   el.hidden = false;
   el.classList.toggle("lead", pre);
   var fee = function(x){ return pre ? "" : ' <span class="fee">' + x + '</span>'; };
-  var h = (pre ? '<div class="issue-h"><h2 id="issueHead">In This Issue</h2>' + bylineHTML() + '</div>' : '<h2 id="issueHead">In This Issue</h2>') +
+  var h = (pre ? '<div class="issue-h">' + bylineHTML() + '<h2 id="issueHead">In This Issue</h2></div>' : '<h2 id="issueHead">In This Issue</h2>') +
     '<h3 class="toc-h">Editorial</h3><ol>' +
     '<li><a href="#jm-essay">A Proposal: What if we Monetize the Citation Out of This Thing?</a><span class="who">Talan Memmott, President.' + fee("adopted as policy") + '</span></li>' +
     '<li><a href="#jm-editor">Letter from the Autodor</a><span class="who">The UnderAcad-O-Matic 6000.' + fee("$3 per citation") + '</span></li>' +
