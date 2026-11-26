@@ -91,6 +91,10 @@ body[data-phase="3"] .reloadbar button{background:#FFF8F0;color:var(--bot)}
 /* PHuD banner ad, under the reload bar */
 .phud-ad{display:flex;align-items:center;gap:.7rem;margin:.7rem 0 0;padding:.45rem .8rem;background:#fff;color:#2A1E24;border:1px solid #D8CFC6;text-decoration:none;font-family:"Archivo",system-ui,sans-serif;font-size:.86rem;line-height:1.3}
 .phud-ad:hover{border-color:#2A1E24}
+.xch-ad{margin-top:.35rem;background:#1A1208;color:#F3DFA8;border-color:#1A1208}
+.xch-ad:hover{border-color:#FFD27A}
+.xch-ad .phud-tag{border-color:#B8904A;color:#B8904A}
+.xch-ad .phud-go{background:#FFD27A;color:#1A1208}
 .phud-tag{flex:none;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;border:1px solid #9A8F86;color:#6E655E;padding:.05rem .3rem}
 .phud-copy{flex:1;min-width:0}
 .phud-copy b{font-weight:800}
@@ -884,6 +888,7 @@ body[data-mode="swarm"] .reloadbar{background:#2A1E24;color:#F7F1EA}
   </div>
 
   <a class="phud-ad" id="phudAd" hidden href="https://docs.google.com/forms/d/e/1FAIpQLSeZowtq2nvum2E_BC5p-f_ltkr-cQFS-mE6MGxkV3_1Ty7B1Q/viewform" target="_blank" rel="noopener"><span class="phud-tag">Ad</span><span class="phud-copy" id="phudCopy"></span><span class="phud-go" id="phudGo">Apply</span></a>
+  <a class="phud-ad xch-ad" id="xchAd" hidden href="https://markcmarino.github.io/how-rank-is-your-college/" target="_blank" rel="noopener"><span class="phud-tag">Ad</span><span class="phud-copy"><span class="phud-long"><b>Found a university.</b> List it on the UnderAcademy Exchange and watch it trade in the <i>US Snooze &amp; Whirled Retort</i>. Prestige not included.</span><span class="phud-short"><b>Found a university</b> on the Exchange.</span></span><span class="phud-go">List it</span></a>
 
   <div class="doubtnote" id="doubtNote" hidden role="note"><b>Warning:</b> The doubt introduced by Wittig’s Dissertation has compounded AInterest.</div>
   <div class="notice subnote" id="subNote" hidden role="region" aria-label="Subscription notice"></div>
@@ -3709,6 +3714,7 @@ function renderAd(){
     $("phudCopy").innerHTML = '<span class="phud-long"><b>The Agentic Dissertation Defense.</b> Now in session. Your committee has already decided.</span><span class="phud-short"><b>Defend your PHuD.</b> Now in session.</span>';
     $("phudGo").textContent = "Play"; a.hidden = false;
   } else a.hidden = true;
+  var x = $("xchAd"); if (x) x.hidden = !(c === 1 && S.ending !== "resist");
 }
 
 /* ===================== start over ===================== */
